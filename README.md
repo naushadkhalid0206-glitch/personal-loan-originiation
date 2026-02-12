@@ -528,8 +528,37 @@ From India’s DPDP Act:
   - Final outcomes
 
 ---
+## 15) Repository Structure
 
-## 15) Analytics, Monitoring & Model Governance
+This repository implements an agentic AI system for personal loan origination and credit underwriting.  
+It follows a structured **Perceive → Plan → Act** workflow, enforced by deterministic policy rules, compliance guardrails, and human-in-the-loop escalation.
+
+### High-Level Layout
+
+- `prompts/` — Versioned prompt artifacts for Perceive/Plan/Act and explanation templates.
+- `agents/` — Markdown documentation defining each specialized agent role.
+- `memory/` — Canonical application state schema and sample state/audit logs.
+- `configs/` — Environment settings, underwriting policy thresholds, reason codes, and routing rules.
+- `src/plo_agent/` — Python package containing the runnable agent graph, agents, policy engine, tools, and APIs.
+- `docs/` — Architecture, PRD, agent graphs, policy configuration guidance, compliance/audit docs.
+- `tests/` — Unit/integration/end-to-end tests with fixtures (synthetic and non-sensitive).
+  
+### Tree
+
+```text
+personal-loan-origination-agent/
+├── prompts/                # Perceive/Plan/Act prompt templates + explainer prompts
+├── agents/                 # Agent role definitions (documentation)
+├── memory/                 # State schema + sample application/audit logs
+├── configs/                # Policy YAMLs, reason codes, routing rules, env configs
+├── docs/                   # PRD, architecture, agent graph, compliance, runbooks
+├── src/plo_agent/          # Python implementation (agents, graphs, tools, policy engine)
+├── tests/                  # Unit/integration/e2e tests + fixtures
+└── scripts/                # Developer utilities (seed demo cases, export audit reports)
+```
+
+
+## 16) Analytics, Monitoring & Model Governance
 
 ### Operational Dashboards
 - Funnel: started → docs complete → KYC complete → bureau complete → decision
